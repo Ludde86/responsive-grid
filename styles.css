@@ -1,0 +1,28 @@
+.nav-wrapper {
+  /* size of our desktop version, before is stays in the center */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 30% auto;
+  background: red;
+}
+
+.burger-icon {
+  display: none;
+}
+
+.main-wrapper {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* this wrapper holds the larger part of our webside */
+.wrapper {
+  max-width: 100%;
+  margin: auto;
+  display: grid;
+  /* this creating three equal width columns, that are each onr fraction */
+  grid-template-columns: repeat(3, 1fr);
+}
