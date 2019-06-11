@@ -11,7 +11,7 @@
 
 .nav-wrapper ul li {
   display: inline;
-  list-style: none;
+  list-style-type: none;
 }
 
 .burger-icon {
@@ -81,4 +81,80 @@
   grid-template-rows: 1fr 1fr;
   background: #333;
   color: #fff;
+}
+
+/* TABLET MEDIA QUERY */
+
+/* THE BREAK POINT BETWEEN TABLET AND DESKTOP */
+/* HERE WE OVERRIDE THE DEFAULT CSS */
+@media screen and (max-width: 950px) {
+  .wrapper {
+    grid-template-areas:
+      "featuredMain featuredMain featuredMain"
+      "featuredSub featuredSub featuredSub"
+      "contentMain contentMain contentSub";
+  }
+  .sub-featured {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .nav-items {
+    /* WHERE AN ELEMENT STARTS AND ENDS */
+    /* STARTS AT GRID COLUMN 1 AND ENDS AT GRID COLUMN 5 */
+    grid-column: 1/5;
+    text-align: center;
+  }
+  .logo {
+    grid-column: 1/5;
+    text-align: center;
+  }
+  .nav-wrapper {
+    margin-top: 0;
+  }
+}
+
+/* MOBILE MEDIA QUERY */
+@media screen and (max-width: 690px) {
+  .logo {
+    grid-column: 1/3;
+  }
+  .nav-items {
+    grid-column: 1/5;
+    text-align: center;
+  }
+  .nav-wrapper ul {
+    padding: 0;
+    margin: 0;
+  }
+  .nav-wrapper ul li {
+    /* DEFAULT BEHAVIOR */
+    /* LAYING OUT UP AND DOWN */
+    display: block;
+  }
+  .burger-icon {
+    display: inline-block;
+    grid-column: 4/5;
+    border: 2px solid #333;
+    border-radius: 3px;
+    color: #333;
+    padding: 10px;
+    font-weight: bold;
+  }
+  .burger-icon:hover {
+    cursor: pointer;
+  }
+  .wrapper {
+    grid-template-areas:
+      "featuredMain featuredMain featuredMain"
+      "contentMain contentMain contentMain"
+      "featuredSub featuredSub featuredSub"
+      "contentSub contentSub contentSub";
+  }
+  .sub-featured {
+    /* SET THE ELEMENTS TO THEIR ORIGINAL */
+    grid-template-columns: 1fr;
+  }
+  .footer > div {
+    /* NEGATIVE 1 IS THE END OF OUR COLUMNS */
+    grid-column: 1/-1;
+  }
 }
