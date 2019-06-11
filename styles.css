@@ -1,3 +1,8 @@
+body {
+  font-family: "Promt", sans-serif;
+  background: lightgray;
+}
+
 .nav-wrapper {
   /* size of our desktop version, before is stays in the center */
   max-width: 1200px;
@@ -6,12 +11,35 @@
   margin-top: 30px;
   display: grid;
   grid-template-columns: 30% auto;
-  background: red;
+  border: solid black 1px;
 }
 
 .nav-wrapper ul li {
   display: inline;
   list-style-type: none;
+}
+
+.nav-wrapper a {
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+}
+
+.nav-wrapper a:hover {
+  cursor: pointer;
+  color: #eee;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.list-item {
+  margin-left: 10px;
+  padding: 5px;
+  text-transform: uppercase;
 }
 
 .burger-icon {
@@ -36,51 +64,106 @@
     "contentMain contentMain contentSub";
 }
 
+/* GROUP SELECTOR */
+.wrapper > .featured,
+.wrapper > .sub-featured > div,
+.wrapper > .main-content,
+.wrapper > .main-sidebar {
+  padding: 20px;
+}
+
 .featured {
   grid-area: featuredMain;
   min-height: 500px;
-  background: purple;
+  border: solid black 1px;
+  /* FADES THE DARKNESS UP */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)) border-box,
+    url(https://source.unsplash.com/1600x900/?space) no-repeat center center;
+  display: grid;
+  align-content: flex-end;
+  color: #fff;
+}
+
+.main-content,
+.featured,
+.sub-featured > div,
+.main-sidebar {
+  /* ADDS 25% OPACITY SHADOW OUTSIDE THE OUTSIDE OF THE EDGES */
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+}
+
+.featured h1 {
+  font-size: 36px;
+  max-width: 650px;
 }
 
 /* behaves as a grid item (to featured), and a perent grid to these three sub items */
 .sub-featured {
   grid-area: featuredSub;
-  background: blue;
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 10px;
+  color: #fff;
+}
+
+.sub-featured h3 {
+  margin-top: 0;
 }
 
 .sub1 {
-  background: green;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)) border-box,
+    url(https://source.unsplash.com/400x100/?technology) no-repeat center center;
+  background-size: cover;
 }
 .sub2 {
-  background: green;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)) border-box,
+    url(https://source.unsplash.com/400x100/?code) no-repeat center center;
+  background-size: cover;
 }
 .sub3 {
-  background: green;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)) border-box,
+    url(https://source.unsplash.com/400x100/?coding) no-repeat center center;
+  background-size: cover;
 }
 
 .main-content {
   grid-area: contentMain;
-  background: orange;
+  background: rgba(255, 255, 255, 0.35);
+  color: #444;
+  line-height: 1.5em;
 }
 
 .main-sidebar {
   grid-area: contentSub;
-  background: yellow;
+  background: rgba(255, 255, 255, 0.35);
+  color: #444;
+  line-height: 1.5em;
 }
 
 .footer {
   display: grid;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)) border-box,
+    url(https://source.unsplash.com/1600x400/?rock) no-repeat center center;
+  background-size: cover;
   margin: auto;
   grid-template-columns:
     minmax(20px, 300px) minmax(20px, 300px)
     minmax(20px, 300px) minmax(20px, 300px);
   justify-content: center;
   grid-template-rows: 1fr 1fr;
-  background: #333;
+
   color: #fff;
+}
+
+.footer > div {
+  padding: 20px;
+}
+
+.copyright {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  grid-column: 1/-1;
 }
 
 /* TABLET MEDIA QUERY */
@@ -149,6 +232,9 @@
       "featuredSub featuredSub featuredSub"
       "contentSub contentSub contentSub";
   }
+  .featured h1 {
+    font-size: 30px;
+  }
   .sub-featured {
     /* SET THE ELEMENTS TO THEIR ORIGINAL */
     grid-template-columns: 1fr;
@@ -156,5 +242,11 @@
   .footer > div {
     /* NEGATIVE 1 IS THE END OF OUR COLUMNS */
     grid-column: 1/-1;
+  }
+  .mobile-show {
+    display: block;
+  }
+  .mobile-hide {
+    display: none;
   }
 }
