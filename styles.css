@@ -9,6 +9,11 @@
   background: red;
 }
 
+.nav-wrapper ul li {
+  display: inline;
+  list-style: none;
+}
+
 .burger-icon {
   display: none;
 }
@@ -25,4 +30,55 @@
   display: grid;
   /* this creating three equal width columns, that are each onr fraction */
   grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-template-areas:
+    "featuredMain featuredMain featuredSub"
+    "contentMain contentMain contentSub";
+}
+
+.featured {
+  grid-area: featuredMain;
+  min-height: 500px;
+  background: purple;
+}
+
+/* behaves as a grid item (to featured), and a perent grid to these three sub items */
+.sub-featured {
+  grid-area: featuredSub;
+  background: blue;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+
+.sub1 {
+  background: green;
+}
+.sub2 {
+  background: green;
+}
+.sub3 {
+  background: green;
+}
+
+.main-content {
+  grid-area: contentMain;
+  background: orange;
+}
+
+.main-sidebar {
+  grid-area: contentSub;
+  background: yellow;
+}
+
+.footer {
+  display: grid;
+  margin: auto;
+  grid-template-columns:
+    minmax(20px, 300px) minmax(20px, 300px)
+    minmax(20px, 300px) minmax(20px, 300px);
+  justify-content: center;
+  grid-template-rows: 1fr 1fr;
+  background: #333;
+  color: #fff;
 }
